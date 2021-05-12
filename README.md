@@ -8,15 +8,28 @@ The goals of this lab session are:
 
 
 ## Getting Started
-Open a shell and clone the repository with the sample code.
-Remember also to source the PULP-SDK configuration script. 
+Install the OpenMP runtime in the PULP SDK
 ~~~~~shell
-cd /pulp
-git pull origin main
 source /pulp/sourceme.sh
-cd <working_dir>
-git clone https://github.com/EEESlab/HSDES-LAB04-PULP_Parallel_Bare
+cd /pulp/pulp-sdk
+git stash
+git pull origin main
+make build
 ~~~~~
+
+In case of errors related to certificates, use this command to set the system clock:
+~~~~~shell
+sudo ntpdate -u time.nist.gov
+~~~~~
+
+Open a shell and clone the repository with the sample code.
+~~~~~shell
+git clone https://github.com/EEESlab/HSDES-LAB05-PULP_Parallel_OpenMP.git
+cd HSDES-LAB05-PULP_Parallel_OpenMP
+cd hello-omp
+make clean all run CORES=1
+~~~~~
+
 
 ### References
 * [PULP builtins](https://greenwaves-technologies.com/manuals/BUILD/PULP-OS/html/group__groupBuiltinsAPI.html)
